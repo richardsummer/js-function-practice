@@ -35,48 +35,119 @@ function maxOfThree(a, b, c) {
   // ---------------------
 
 function isVowel(x) {
-  let x = 'a';
-  if (x == 'a' || 'e' || 'i' || 'o' || 'u' || 'y') {
+  if (x === 'a' || x === 'e' || x === 'i' || x === 'o' || x === 'u') {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
   // ---------------------
   // Write a function rovarspraket() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
   // ---------------------
 
+function rovarspraket(text) {
+  let translation = '';
+
+  const textArray = text.split("");
+
+  for(let i = 0; i < textArray.length; i++) {
+    if(isVowel(textArray[i]) || textArray[i] === " ") {
+      translation += textArray[i];
+    } else {
+      translation += textArray[i] + 'o' + textArray[i];
+    }
+    // Another option:
+    
+    // const isConsonant = 'bcdfghjklmnpqrstvwxyz'.includes(textArray[i]);
+    // if(isConsonant) {
+    //   translation += textArray[i] + 'o' + textArray[i];
+    // } else {
+    //   translation += textArray[i];
+    // }
+  }
+  return translation;
+}
 
 
   // ---------------------
   // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
   // ---------------------
 
+function sum(arr) {
+  let result = 0;
 
+  for(let i = 0; i < arr.length; i++) {
+    result += arr[i];
+  }
 
+  return result;
+}
+
+function multiply(arr) {
+  let result = 1;
+
+  for(let i = 0; i < arr.length; i++) {
+    result *= arr[i];
+  }
+
+  return result;
+}
   // ---------------------
   // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
   // ---------------------
 
-
+function reverse(str) {
+  return str.split("").reverse().join("");
+}
 
   // ---------------------
   // Define a function findLongestWord() that takes an array of words and returns the length of the longest one.
   // ---------------------
 
+function findLongestWord(arr) {
+  let result = 0;
 
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i].length > result) {
+      result = arr[i].length;
+    }
+  }
+
+  return result;
+}
 
   // ---------------------
   // Define a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
   // ---------------------
 
+function filterLongWords(arr, i) {
+  let longWordsArray = [];
 
+  for(let j = 0; j < arr.length; j++) {
+    if(arr[j].length > i) {
+      longWordsArray.push(arr[j]);
+    }
+  }
+
+  return longWordsArray;
+}
 
   // ---------------------
   // Define a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
   // ---------------------
 
+function charFreq(str) {
+  const freqCount = {};
+  const strArray = str.split("");
+
+  for(let i = 0; i < strArray.length; i++) {
+
+    const char = strArray[i];
+    freqCount[char] = freqCount[char] + 1 || 1;
+  }
+
+  return freqCount
+}
 
   ////////////////////////////////////////////////////////////////////////
   /////////////////////////DO NOT CHANGE CODE BELOW///////////////////////
