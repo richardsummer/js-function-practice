@@ -48,14 +48,17 @@ const doSomethingCool = function() {
 // after 2 seconds. Refactor to use an anonymous
 // function
 
-function sayHi() {
-  alert("Hello, World!");
-}
-
-// setTimeout(sayHi, 2000); DONT FORGET TO UNCOMMENT LATER
+// function sayHi() {
+//   alert("Hello, World!");
+// }
+//
+// setTimeout(sayHi, 2000);
 
 // Put your answer below -------------------------
 
+setTimeout(function(){
+  alert("Hello, World!");
+}, 2000);
 
 // -----------------------------------------------
 
@@ -86,6 +89,9 @@ console.log("The letter is", letter);
 
 // Put your answer below -------------------------
 
+/*[c]: z then y ---- z is logged first because it
+   is in the global namespace, whereas y is in a
+   block scope.*/
 
 // -----------------------------------------------
 
